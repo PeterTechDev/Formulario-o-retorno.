@@ -80,15 +80,13 @@ passwordConfirm.addEventListener('pointerdown', () => {
     passwordConfirm.removeAttribute('disabled')
 })
 
-//verificar se as senhas estão iguais
-const checkPassword = ()=>{
-    if(password.value != passwordConfirm.value){
-        alert('As senhas não coincidem')
-    }
-}
 
 //add a verificação das senhas ao clicar em enviar
-sendButton.addEventListener('click', ()=>{checkPassword()} )
+sendButton.addEventListener('click', (event)=>{
+    if(password.value != passwordConfirm.value){
+        event.preventDefault(alert('As senhas não coincidem'));
+    }
+})
 
 //add prevant default no botão cancelar
 cancelButton.addEventListener('click', event => {
