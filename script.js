@@ -90,7 +90,10 @@ sendButton.addEventListener('click', (event)=>{
 
 //add prevant default no botão cancelar
 cancelButton.addEventListener('click', event => {
-    event.preventDefault(confirm('Tem certeza que deseja resetar os dados inseridos ?'))
+    const confirmation = confirm('Tem certeza que deseja resetar os dados inseridos ?')
+    if(confirmation != true){
+        event.preventDefault()
+    }
 })
 
 // verifica se os inputs preenchidos estão desativados
