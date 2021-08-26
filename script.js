@@ -92,3 +92,6 @@ sendButton.addEventListener('click', (event)=>{
 cancelButton.addEventListener('click', event => {
     event.preventDefault(confirm('Tem certeza que deseja resetar os dados inseridos ?'))
 })
+
+// verifica se os inputs preenchidos estão desativados
+document.body.addEventListener('mouseover', ()=> {desabilitarInputs} )
