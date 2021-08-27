@@ -6,7 +6,7 @@ document.body.appendChild(form);
 const $form = document.querySelector('form');
 
 //FUNÇÃO PARA CRIAR OS FILHOS DO FORM
-const formChild = son => $form.appendChild(son);
+formChild = son => $form.appendChild(son);
 
 // const create = document.createElement();
 
@@ -95,6 +95,3 @@ cancelButton.addEventListener('click', event => {
         event.preventDefault()
     }
 })
-
-// verifica se os inputs preenchidos estão desativados
-document.body.addEventListener('mouseover', ()=> {desabilitarInputs} )
