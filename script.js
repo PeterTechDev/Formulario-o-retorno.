@@ -2,28 +2,22 @@
 const form = document.createElement('form');
 document.body.appendChild(form);
 
-// CAPTURA O FORM 
-const $form = document.querySelector('form');
-
 //FUNÇÃO PARA CRIAR OS FILHOS DO FORM
-formChild = son => $form.appendChild(son);
-
-// const create = document.createElement();
+formChild = son => form.appendChild(son);
 
 // CRIAÇÃO DO TITULO
 const title = document.createElement('h1');
 formChild(title)
 title.innerText = 'Cadastro'
 
-
-//CRIAÇÃO DOS INPUTS
+//CRIAÇÃO DOS INPUTS (3) E SEUS ATRIBUTOS 
 //TODO: add o atributo required nos inputs
 //email
 const email = document.createElement('input');
 email.setAttribute('placeholder', 'Digite seu email');
 email.setAttribute('type', 'email');
 email.setAttribute('required', '');
-formChild(email);
+formChild(email); /* invocando função da linha 6 */
 //senha
 const password = document.createElement('input')
 password.setAttribute('placeholder', 'Digite sua senha');
@@ -45,16 +39,13 @@ cancelButton.setAttribute('type', 'reset');
 cancelButton.innerText = 'Cancelar';
 formChild(cancelButton);
 
-
+//--------------------------------------------------------------------------//
 //Construa esses inputs de uma forma que quando forem preenchidos com algum conteúdo, os campos receberão a propriedade “disabled”
 //mas quando o mouse estiver acima desse campo ele vai perder essa propriedade possibilitando a modificação do conteúdo pelo usuário.
 //Quando o mouse sair do input e o mesmo tiver preenchido, ele receberá a propriedade disabled novamente.
 
-//captura todos os inputs
+//captura todos os inputs em uma lista
 const inputs = document.querySelectorAll('input');
-
-//evento ativado quando houver uma mudança no form
-form.addEventListener('change', () => { desabilitarInputs() });
 
 //função para desabilitar os inputs se estiverem preenchidos
 desabilitarInputs = () => {
@@ -64,6 +55,9 @@ desabilitarInputs = () => {
         }
     })
 }
+
+//evento dispara quando houver uma mudança no form e invoca a função para desabilitar os inputs - linha 51
+form.addEventListener('change', () => { desabilitarInputs() });
 
 //função para habilitar o input quando clicado e desabilitar os demais
 habilitar = element => {
