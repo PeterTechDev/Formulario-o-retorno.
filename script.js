@@ -66,7 +66,7 @@ habilitar = element => {
 }
 
 // evento verificação e desabilitar o input após o mouse sair da area
-form.addEventListener('mouseout', event => desabilitarInputs())
+form.addEventListener('mouseout', ()=> desabilitarInputs())
 
 //add os eventos para invocar a função habilitar quando clicar no elemento
 email.addEventListener('pointerdown', ()=>habilitar(email))
@@ -75,23 +75,18 @@ passwordConfirm.addEventListener('pointerdown', ()=>habilitar(passwordConfirm))
 
 //add a verificação das senhas ao clicar em enviar
 sendButton.addEventListener('click', event =>{
-    if(password.value != passwordConfirm.value){
-        event.preventDefault(alert('As senhas não coincidem'));
-    }
+    if(password.value != passwordConfirm.value)
+    event.preventDefault(alert('As senhas não coincidem'));
 })
+
+//verifica se email é válido
 sendButton.addEventListener('click', event =>{
-    if(email.value.includes('@') || email.value.includes('.com')){
-        console.log('email ok')
-    } else {
-        alert('Favor insira um email válido')
-        event.preventDefault()
-    }
+   email.value.includes('@') || email.value.includes('.com')? console.log('email ok'): alert('Favor insira um email válido')
+       event.preventDefault()
 })
 
 //add prevant default no botão cancelar
 cancelButton.addEventListener('click', event => {
     const confirmation = confirm('Tem certeza que deseja resetar os dados inseridos ?')
-    if(confirmation != true){
-        event.preventDefault()
-    }
+    if(confirmation != true) event.preventDefault()
 })
