@@ -51,7 +51,7 @@ const inputs = document.querySelectorAll('input');
 desabilitarInputs = () => {
     inputs.forEach(element => {
         if (element.value != '') {
-            element.setAttribute('disabled', true)
+            element.setAttribute('disabled', true);
         }
     })
 }
@@ -64,6 +64,10 @@ habilitar = element => {
     desabilitarInputs();
     element.removeAttribute('disabled')
 }
+
+// evento verificação e desabilitar o input após o mouse sair da area
+form.addEventListener('mouseout', event => desabilitarInputs())
+
 //add os eventos para invocar a função habilitar quando clicar no elemento
 email.addEventListener('pointerdown', ()=>habilitar(email))
 password.addEventListener('pointerdown', ()=>habilitar(password))
@@ -83,3 +87,4 @@ cancelButton.addEventListener('click', event => {
         event.preventDefault()
     }
 })
+
