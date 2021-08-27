@@ -22,6 +22,7 @@ title.innerText = 'Cadastro'
 const email = document.createElement('input');
 email.setAttribute('placeholder', 'Digite seu email');
 email.setAttribute('type', 'email');
+email.setAttribute('required', '');
 formChild(email);
 //senha
 const password = document.createElement('input')
@@ -56,7 +57,7 @@ const inputs = document.querySelectorAll('input');
 form.addEventListener('change', () => { desabilitarInputs() });
 
 //função para desabilitar os inputs se estiverem preenchidos
-const desabilitarInputs = () => {
+desabilitarInputs = () => {
     inputs.forEach(element => {
         if (element.value != '') {
             element.setAttribute('disabled', true)
@@ -65,21 +66,14 @@ const desabilitarInputs = () => {
 }
 
 //função para habilitar o input quando clicado e desabilitar os demais
-email.addEventListener('pointerdown', () => {
+habilitar = element => {
     desabilitarInputs();
-    email.removeAttribute('disabled')
-})
-
-password.addEventListener('pointerdown', () => {
-    desabilitarInputs();
-    password.removeAttribute('disabled')
-})
-
-passwordConfirm.addEventListener('pointerdown', () => {
-    desabilitarInputs();
-    passwordConfirm.removeAttribute('disabled')
-})
-
+    element.removeAttribute('disabled')
+}
+//add os eventos para invocar a função habilitar quando clicar no elemento
+email.addEventListener('pointerdown', ()=>habilitar(email))
+password.addEventListener('pointerdown', ()=>habilitar(password))
+passwordConfirm.addEventListener('pointerdown', ()=>habilitar(passwordConfirm))
 
 //add a verificação das senhas ao clicar em enviar
 sendButton.addEventListener('click', (event)=>{
