@@ -74,9 +74,17 @@ password.addEventListener('pointerdown', ()=>habilitar(password))
 passwordConfirm.addEventListener('pointerdown', ()=>habilitar(passwordConfirm))
 
 //add a verificação das senhas ao clicar em enviar
-sendButton.addEventListener('click', (event)=>{
+sendButton.addEventListener('click', event =>{
     if(password.value != passwordConfirm.value){
         event.preventDefault(alert('As senhas não coincidem'));
+    }
+})
+sendButton.addEventListener('click', event =>{
+    if(email.value.includes('@') || email.value.includes('.com')){
+        console.log('email ok')
+    } else {
+        alert('Favor insira um email válido')
+        event.preventDefault()
     }
 })
 
@@ -87,4 +95,3 @@ cancelButton.addEventListener('click', event => {
         event.preventDefault()
     }
 })
-
